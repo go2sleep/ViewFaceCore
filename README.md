@@ -1,7 +1,10 @@
 # ViewFaceCore
-- 超简单的人脸识别库
+- 超简单的人脸识别库 0.2
 - C# 库
 - Nuget Pack
+
+# 更新
+- 2020年7月16日: 新增活体检测方法
 
 # 样例
 [WinForm 摄像头人脸检测](https://github.com/View12138/ViewFaceCoreDemo)
@@ -58,6 +61,19 @@ float Similarity(float[], float[]);
 // 判断相似度是否为同一个人。
 bool IsSelf(float);
 
+// 单帧 活体检测
+public AntiSpoofingStatus AntiSpoofing(Bitmap bitmap, FaceInfo info, FaceMarkPoint[] points, bool global);
+
+// 视频帧 活体检测
+public AntiSpoofingStatus AntiSpoofingVideo(Bitmap bitmap, FaceInfo info, FaceMarkPoint[] points, bool global);
+
+```
+
+也可以引用 `ViewFaceCore.Sharp.Extends` 命名空间，使用扩展方法进行活体检测
+
+```
+// 使用视频帧的 Bitmap 数组进行活体检测
+public static AntiSpoofingStatus AntiSpoofingVideo(this ViewFace viewFace, Bitmap[] bitmaps, int faceIndex, bool global)
 ```
 
 # 说明
@@ -79,7 +95,5 @@ bool IsSelf(float);
 
 ### `ViewFaceCore` 项目
 - 直接编译生成 AnyCPU 的 `ViewFaceCore.dll` 
-- 在 .NET 项目的生成文件夹中创建 `FaceLibraries` 、 `FaceLibraries\x64` 、 `FaceLibraries\x86` 、 `model` 文件夹
-- 将 `SeetaFace6` 、 `ViewFace` 的不同平台的 dll 分别拷贝至 x86 和 x64 文件夹中
 - 将下载的 `模型文件` 拷贝至 `model` 文件夹中
 - 在 .NET 项目中引用 `ViewFaceCore.dll` 即可
