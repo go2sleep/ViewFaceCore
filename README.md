@@ -73,7 +73,7 @@ public AntiSpoofingStatus AntiSpoofingVideo(Bitmap bitmap, FaceInfo info, FaceMa
 
 ```
 // 使用视频帧的 Bitmap 数组进行活体检测
-public static AntiSpoofingStatus AntiSpoofingVideo(this ViewFace viewFace, Bitmap[] bitmaps, int faceIndex, bool global)
+public static AntiSpoofingStatus AntiSpoofingVideo(Bitmap[] bitmaps, int faceIndex, bool global)
 ```
 
 # 说明
